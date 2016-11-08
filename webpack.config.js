@@ -1,12 +1,6 @@
 var HtmlWebpackTemplate = require('html-webpack-template');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const
-  folder = process.env.FORLDER || 'src';
-
-
-
-
 module.exports = {
 
   entry: './src/index.js',
