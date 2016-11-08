@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 
 import configureStore from './store/configureStore'
 
-import MessagesBlock from './containers/MessagesBlock'
+import MessagesBlock from './containers/MessagesBlock.jsx'
 import './index.scss'
 
 

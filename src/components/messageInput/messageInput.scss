@@ -1,0 +1,8 @@
+.messageInput {
+  margin: 20px;
+
+  & > input {
+    height: 100px;
+    word-wrap: break-word;
+  }
+}

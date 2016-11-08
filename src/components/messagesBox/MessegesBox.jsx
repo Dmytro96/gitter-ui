@@ -5,12 +5,12 @@ import './messagesBox.scss'
 export class MessegesBox extends React.Component {
 
   render() {
-    const {boxOfMessages} = this.props;
+    const {messagesBox} = this.props;
 
     return (
       <div className='allMessages'>
         {
-          boxOfMessages.get('boxOfMessages').map((item, index) =>
+          messagesBox.get('boxOfMessages').map((item, index) =>
             <div className='existingMessage' key={index}>
               <p>{item}</p>
             </div>
