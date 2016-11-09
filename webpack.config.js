@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 var HtmlWebpackTemplate = require('html-webpack-template');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -10,7 +11,9 @@ module.exports = {
     publicPath: '/'
   },
   module: {
+
     loaders: [
+      {test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/},
       {
         test: /\.jsx?/,
         loader: 'babel',
@@ -19,12 +22,12 @@ module.exports = {
           presets: [
             'es2015',
             'react',
-            'stage-2'
+            'stage-0'
           ]
         }
       },
       {
-        test: /\.s(c|a)ss$/,
+        test: /\.s?(c|a)ss$/,
         exclude: /node_modules/,
         loaders: [
           'style',
@@ -36,12 +39,12 @@ module.exports = {
         test: /\.(png|jpg)$/,
         loaders: [
           'url'
-        ],
-        query: {
-          limit: 8192
-        }
+        ]
       }
     ]
+  },
+  eslint: {
+    configFile: '.eslintrc'
   },
   plugins: [
     new HtmlWebpackPlugin({
