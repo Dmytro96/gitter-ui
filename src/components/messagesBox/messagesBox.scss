@@ -6,9 +6,12 @@
   word-wrap: break-word;
   white-space: pre;
 
-  &:first-line {
+  & div:first-child {
     color: blue;
-    font-size:1.5em;
+    font-size: 1.2em;
+  }
+  & div:last-child {
+    padding-left: 10px;
   }
 }
 

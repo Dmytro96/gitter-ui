@@ -6,7 +6,7 @@ export class MessagesBox extends React.Component {
 
   constructor(props) {
     super(props);
-    this.userName = prompt('Input your e-mail', 'User');
+    // this.userName = prompt('Input your e-mail', 'User');
   }
 
   render() {
