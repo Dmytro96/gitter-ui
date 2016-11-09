@@ -10,16 +10,18 @@ export class MessagesBox extends Component {
     // this.userName = prompt('Input your e-mail', 'User');
   }
 
+
   render() {
 
     const
       {messagesBox} = this.props,
+      currentMessages = messagesBox.get('boxOfMessages').takeLast(5),
       userName = this.userName || 'User';
 
     return (
       <div className='allMessages'>
         {
-          messagesBox.get('boxOfMessages').map((item, index) =>
+          currentMessages.map((item, index) =>
           <div
             key={index}
             className='existingMessage' >
