@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
@@ -7,10 +7,13 @@ import {MessageInput} from '../components/messageInput/MessageInput.jsx'
 
 import {sendMessage} from '../actions/messagesActions'
 
-class MessagesBlock extends React.Component {
+
+class MessagesBlock extends Component {
 
   render() {
+
     const {messagesBox, sendMessage} = this.props;
+
     return (
       <div>
         <MessagesBox messagesBox={messagesBox}/>
@@ -18,6 +21,7 @@ class MessagesBlock extends React.Component {
       </div>
     )
   }
+
 }
 
 const

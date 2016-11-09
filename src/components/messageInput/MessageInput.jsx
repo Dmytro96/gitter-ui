@@ -1,46 +1,47 @@
-import React from 'react'
+import React, {Component} from 'react'
 import './messageInput.scss'
 
-export class MessageInput extends React.Component {
+export class MessageInput extends Component {
 
-  constructor(props) {
-    super(props);
-    this.sendMessage = this.sendMessage.bind(this);
-    this.sendMessageThroughCtrlEnter = this.sendMessageThroughCtrlEnter.bind(this);
-  }
 
-  sendMessage(event) {
+  sendMessage = event => {
     event.preventDefault();
+
     const
       {sendMessage} = this.props,
-      textMessage = document.getElementById('textMessage'),
+      {textMessage} = this.refs,
       noSpaceMsg = textMessage.innerText.trim();
-    console.log(noSpaceMsg);
-    if (noSpaceMsg.length > 0) {
-      sendMessage(noSpaceMsg);
-      textMessage.innerText= ''
+
+      if (noSpaceMsg.length > 0) {
+        sendMessage(noSpaceMsg);
+        textMessage.innerText= '';
+      }
+  };
+
+
+  sendMessageThroughCtrlEnter = event => {
+    if (event.ctrlKey && event.which == 13) {
+      this.sendMessage(event);
     }
-  }
+  };
 
-  sendMessageThroughCtrlEnter(event) {
-    if (event.keyCode == 10) this.sendMessage(event)
-  }
-
-  componentDidMount() {
-    document.getElementById('inputSubmit').addEventListener('click', this.sendMessage);
-    document.getElementById('textMessage').addEventListener('keypress', this.sendMessageThroughCtrlEnter);
- }
-
-  componentWillUnmount() {
-    document.getElementById('inputSubmit').removeEventListener('click', this.sendMessage);
-    document.getElementById('textMessage').removeEventListener('keypress', this.sendMessageThroughCtrlEnter);
-  }
 
   render() {
     return (
       <div className='messageInput'>
-        <div id="textMessage" contentEditable='true' data-text='Input message'></div>
-        <button id="inputSubmit">Send</button>
+        <div
+          ref='textMessage'
+          id='textMessage'
+          contentEditable='true'
+          data-text='Input message'
+          onKeyDown={this.sendMessageThroughCtrlEnter}
+        />
+        <button
+          id="inputSubmit"
+          onClick={this.sendMessage}
+        >
+          Send
+        </button>
       </div>
     )
   }

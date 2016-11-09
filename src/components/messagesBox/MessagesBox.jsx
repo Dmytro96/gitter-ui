@@ -1,8 +1,9 @@
-import React, { PropTypes as pt } from 'react'
+import React, { PropTypes as pt, Component } from 'react'
 import './messagesBox.scss'
+import IPropTypes from 'react-immutable-proptypes'
 
 
-export class MessagesBox extends React.Component {
+export class MessagesBox extends Component {
 
   constructor(props) {
     super(props);
@@ -10,9 +11,11 @@ export class MessagesBox extends React.Component {
   }
 
   render() {
+
     const
       {messagesBox} = this.props,
       userName = this.userName || 'User';
+
     return (
       <div className='allMessages'>
         {
@@ -36,5 +39,7 @@ export class MessagesBox extends React.Component {
 }
 
 MessagesBox.propTypes = {
-  box: pt.object
+  messagesBox: IPropTypes.mapContains({
+    boxOfMessages: IPropTypes.list.isRequired
+  })
 };
