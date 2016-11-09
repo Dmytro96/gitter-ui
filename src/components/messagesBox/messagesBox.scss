@@ -4,4 +4,15 @@
 
   border-bottom: 1px solid silver;
   word-wrap: break-word;
+  white-space: pre;
+
+  &:first-line {
+    color: blue;
+    font-size:1.5em;
+  }
+}
+
+.allMessages {
+  border-right: 1px solid silver;
+  width: 320px;
 }

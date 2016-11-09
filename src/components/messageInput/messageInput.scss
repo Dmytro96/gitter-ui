@@ -1,8 +1,28 @@
+* {
+  font-family: Arial, serif;
+}
 .messageInput {
   margin: 20px;
+  display: inline-block;
 
-  & > input {
-    height: 100px;
+  & > #textMessage {
+    padding: 7px;
+    width: 200px;
     word-wrap: break-word;
+    outline: none;
+    border: 1px solid #bebebe;
+    border-radius: 2px;
+    color: #878787;
+
+
+
+    &:focus {
+      border: 1px solid #a1a1a1;
+      color: #434343;
+    }
+
+    &[contentEditable=true]:empty:not(:focus):before{
+      content:attr(data-text);
+    }
   }
 }

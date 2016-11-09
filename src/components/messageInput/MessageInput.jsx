@@ -9,13 +9,16 @@ export class MessageInput extends React.Component {
     this.sendMessage = this.sendMessage.bind(this)
   }
 
-  sendMessage() {
+  sendMessage(event) {
+    event.preventDefault();
     const
       {sendMessage} = this.props,
-      textMessage = document.getElementById('textMessage');
-    if (textMessage.value.length > 0) {
-      sendMessage(textMessage.value)
-      textMessage.value = ''
+      textMessage = document.getElementById('textMessage'),
+      noSpaceMsg = textMessage.innerText.trim();
+    if (noSpaceMsg.length > 0) {
+      console.log(noSpaceMsg);
+      sendMessage(noSpaceMsg);
+      textMessage.innerText= ''
     }
   }
 
@@ -30,7 +33,7 @@ export class MessageInput extends React.Component {
 
     return (
       <div className='messageInput'>
-        <input id='textMessage' type="text" placeholder='Input some message'/>
+        <div id="textMessage" contentEditable='true' data-text='Input message'></div>
         <button id="inputSubmit">Send</button>
       </div>
     )
