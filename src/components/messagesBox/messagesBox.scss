@@ -3,8 +3,9 @@
   width: 300px;
 
   border-bottom: 1px solid silver;
-  word-wrap: break-word;
-  white-space: pre;
+
+  word-break: break-all;
+  white-space: pre-wrap;
 
   & div:first-child {
     color: blue;

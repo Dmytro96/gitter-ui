@@ -1,4 +1,4 @@
-import React, { PropTypes as pt } from 'react'
+import React from 'react'
 import './messageInput.scss'
 
 export class MessageInput extends React.Component {
@@ -15,6 +15,7 @@ export class MessageInput extends React.Component {
       {sendMessage} = this.props,
       textMessage = document.getElementById('textMessage'),
       noSpaceMsg = textMessage.innerText.trim();
+    console.log(noSpaceMsg);
     if (noSpaceMsg.length > 0) {
       sendMessage(noSpaceMsg);
       textMessage.innerText= ''
