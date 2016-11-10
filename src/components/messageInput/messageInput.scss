@@ -1,3 +1,6 @@
+$blur-font-color: #969696;
+$default-font-color: #222222;
+
 * {
   font-family: Arial, serif;
 }
@@ -10,17 +13,17 @@
     outline: none;
     border: 1px solid #bebebe;
     border-radius: 2px;
-    color: #878787;
+    color: $default-font-color;
     word-wrap: break-word;
-
 
     &:focus {
       border: 1px solid #a1a1a1;
-      color: #434343;
+      color: $default-font-color;
     }
 
     &[contentEditable=true]:empty:not(:focus):before{
       content:attr(data-text);
+      color: $blur-font-color;
     }
   }
 }

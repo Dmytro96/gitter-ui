@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import './messageInput.scss'
+import styles from './messageInput.scss'
 
 export class MessageInput extends Component {
 
@@ -27,13 +27,14 @@ export class MessageInput extends Component {
 
 
   render() {
+
     return (
-      <div className='messageInput'>
+      <div className={styles.messageInput}>
         <div
-          ref='textMessage'
-          id='textMessage'
           contentEditable='true'
           data-text='Input message'
+          ref='textMessage'
+          id={styles.textMessage}
           onKeyDown={this.sendMessageThroughCtrlEnter}
         />
         <button

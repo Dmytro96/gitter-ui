@@ -1,5 +1,5 @@
 import React, { PropTypes as pt, Component } from 'react'
-import './messagesBox.scss'
+import styles from './messagesBox.scss'
 import IPropTypes from 'react-immutable-proptypes'
 
 
@@ -7,7 +7,7 @@ export class MessagesBox extends Component {
 
   constructor(props) {
     super(props);
-    // this.userName = prompt('Input your e-mail', 'User');
+    // this.state.userName = prompt('Input your e-mail', 'User');
   }
 
 
@@ -15,16 +15,16 @@ export class MessagesBox extends Component {
 
     const
       {messagesBox} = this.props,
-      currentMessages = messagesBox.get('boxOfMessages').takeLast(5),
-      userName = this.userName || 'User';
+      userName = 'User',
+      currentMessages = messagesBox.get('boxOfMessages').takeLast(5);
 
     return (
-      <div className='allMessages'>
+      <div className={styles.allMessages}>
         {
           currentMessages.map((item, index) =>
           <div
             key={index}
-            className='existingMessage' >
+            className={styles.existingMessage} >
 
             <div>
               {userName}

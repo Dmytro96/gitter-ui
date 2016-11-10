@@ -27,11 +27,11 @@ module.exports = {
         }
       },
       {
-        test: /\.s?(c|a)ss$/,
+        test: /\.(sass|scss|css)$/,
         exclude: /node_modules/,
         loaders: [
-          'style',
-          'css',
+          'style?sourceMap',
+          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
           'sass'
         ]
       },
