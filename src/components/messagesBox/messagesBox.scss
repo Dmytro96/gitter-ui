@@ -1,0 +1,23 @@
+.existingMessage {
+  padding: 10px;
+  width: 300px;
+
+  border-bottom: 1px solid silver;
+
+  word-break: break-all;
+  white-space: pre-wrap;
+
+  & div:first-child {
+    color: blue;
+    font-size: 1.2em;
+  }
+  & div:last-child {
+    padding-left: 10px;
+    text-align: justify;
+  }
+}
+
+.allMessages {
+  border-right: 1px solid silver;
+  width: 320px;
+}

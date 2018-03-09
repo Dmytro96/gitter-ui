@@ -1,0 +1,29 @@
+$blur-font-color: #969696;
+$default-font-color: #222222;
+
+* {
+  font-family: Arial, serif;
+}
+.messageInput {
+  margin: 20px;
+
+  & > #textMessage {
+    padding: 7px;
+    width: 200px;
+    outline: none;
+    border: 1px solid #bebebe;
+    border-radius: 2px;
+    color: $default-font-color;
+    word-wrap: break-word;
+
+    &:focus {
+      border: 1px solid #a1a1a1;
+      color: $default-font-color;
+    }
+
+    &[contentEditable=true]:empty:not(:focus):before{
+      content:attr(data-text);
+      color: $blur-font-color;
+    }
+  }
+}
